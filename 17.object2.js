@@ -20,21 +20,24 @@ console.log(reguleruser.email)
 console.log(reguleruser.username)
 console.log(reguleruser.username.name)
 
+console.log(Object.keys(reguleruser));
+let store=Object.keys(reguleruser);      //we can use object key value,store as an arrray and do operation on them
+store.forEach(element => {
+      console.log(element)
+});
+console.log(Object.entries(reguleruser))   //array bana diya
+
+console.log(reguleruser.hasOwnProperty('email'))
 
 // ---------------------------- Merge two object -----------------------
 
 
-let obj1={text:'name'};
-let obj2={text:'age'};
+let obj1={a:'1',b:'3'}
+let obj2={c:'2',d:'4'}
+let obj3={e:'5',f:'7'}
 
-console.log(obj1+obj2)
-
-let obj3={obj1,obj2}
-console.log(obj3)
-
-let obj4=({},obj1,obj3)
-console.log(obj4)
-
-
-let obj5=Object.assign({},obj1,obj2)
-console.log(obj5)
+//  let objMerge={obj1,obj2,obj3};    let objMerge=Object.assign({obj1,obj2,obj3})      ;it take every obj as a element and make new object with them not merge 
+// let objMerge=Object.assign({},obj1,obj2,obj3);   merge
+// let objMerge=Object.assign(obj1,obj2,obj3);   //merge
+let objMerge={...obj1,...obj2,...obj3}  //merge
+console.log(objMerge);
