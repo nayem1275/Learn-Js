@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+                body{
+                    background-color: rgb(29, 29, 29);
+                }
+                .clock{
+
+                        height:70px;
+                        width: 200px;
+                        background-color: yellow;
+                        margin-top:20%;
+                        margin-left: 50%;
+                        transform: translate(-50%,-50%);
+                        border-radius:5px;
+                        display:flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgb(202, 165, 165);
+                        font-size:30px;
+                        font-weight:800;
+                        
+                }
+</style>
+<body>
+
+
+    <div class="clock">
+                      
+    </div>
+
+
+
+    <script>
+                  let clock=document.querySelector('.clock');
+
+                  setInterval(()=>{
+                    let date=new Date();
+                    let time=date.toLocaleTimeString();
+                    clock.innerHTML=time;
+                  },1000)
+    </script>
+
+
+      
+</body>
+</html>

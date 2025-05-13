@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                 .colorBox{
+                             text-align: center;
+                             margin: 200px auto;
+                 }
+
+                 .color{
+                     height: 200px;
+                     width: 200px;
+                     display: inline-block;
+                     border: 5px solid black;
+                 }
+
+                 #red{
+                    background-color: red;
+                 }
+
+                 #yellow{
+                     background-color: yellow;
+                 }
+
+                 #green{
+                     background-color: green;
+                 }
+
+                 #black{
+                     background-color: black;
+                 }
+    </style>
+</head>
+<body>
+        <div class="colorBox">
+                        <span  class="color" id="red"></span>
+                        <span class="color" id="black"></span>
+                        <span class="color" id="green"></span>
+                        <span class="color" id="yellow"></span>
+        </div>
+        <script>
+                 let body=document.body;
+                 let color=document.querySelectorAll('.color');
+
+                 color.forEach((item)=>{
+                   item.addEventListener('click',(e)=>{
+                        if(e.target.id ==='black'){
+                            body.style.backgroundColor=e.target.id;
+                            item.style.border='5px solid white';
+                            let remove=document.querySelectorAll('.color');
+                            remove.forEach((item2)=>{
+                                    if(item2!=item){
+                                        item2.style.border='5px solid black'
+                                    }
+                            })
+                        }
+
+
+                     if(e.target.id ==='yellow'){
+                            body.style.backgroundColor=e.target.id;
+                            item.style.border='5px solid white';
+                            let remove=document.querySelectorAll('.color');
+                            remove.forEach((item2)=>{
+                                    if(item2!=item){
+                                        item2.style.border='5px solid black'
+                                    }
+                            })
+                        }
+
+
+                     if(e.target.id ==='red'){
+                            body.style.backgroundColor=e.target.id;
+                            item.style.border='5px solid white';
+                            let remove=document.querySelectorAll('.color');
+                            remove.forEach((item2)=>{
+                                    if(item2!=item){
+                                        item2.style.border='5px solid black'
+                                    }
+                            })
+                        }
+
+                      if(e.target.id ==='green'){
+                            body.style.backgroundColor=e.target.id;
+                            item.style.border='5px solid white';
+                            let remove=document.querySelectorAll('.color');
+                            remove.forEach((item2)=>{
+                                    if(item2!=item){
+                                        item2.style.border='5px solid black'
+                                    }
+                            })
+                        }
+                   })
+                 })
+        </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  <style>
+    body{
+         background-color: rgb(0, 128, 128);
+    }
+
+    .formBody{
+        max-width: 600px;
+        background-color: white;
+        margin: 200px auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: monospace;
+        font-size: 20px;
+    }
+
+#height{
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     padding: 10px;
+     margin-bottom: 10px;
+     
+}
+
+#weight{
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+      padding: 10px;
+     margin-bottom: 10px;
+     
+}
+
+input{
+         padding:8px 15px;
+         flex-basis:40%;
+         outline: none;
+         border-top: none;
+         border-left: none;
+         border-right: none;
+         background-color:rgb(0, 128, 128,0.2);
+         border-radius: 5px;
+}
+label{
+    padding: 10px 18px;
+}
+
+button{
+     padding: 10px 18px;
+     font-size: 20px;
+     font-weight: 600;
+     background-color:rgb(0, 128, 128,0.1);
+     border: none;
+     border-radius: 5px;
+     transition: background-color 1s linear;
+    
+}
+
+button:hover{
+          background-color: teal;
+          color: white;
+}
+
+#result{
+         margin: 30px;
+         
+}
+#indicator{
+         text-align: left;
+         padding-left:50px;
+}
+
+.effect{
+              font-size:26px;
+              color:red;
+              transition: all 1s ;
+}
+ 
+
+
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+            <div class="formBody">
+                               <h1>BMI CALCULATOR</h1>
+                        <form action="">
+                                 <div id="height"> <label for="">Enter your height (cm)</label> <input type="text" id="takeHeight"></div>   
+                          
+
+
+                                   <div id="weight"><label for="">Enter your weight (kg)</label> <input type="text" id="takeWeight"></div>
+                                     <button id="calculate">CALCULATE</button>
+                        </form>
+           
+
+
+               <div id="result"></div>
+       
+                <div id="indicator">
+                               <p>Underweight ==> 18.5 ==> Gain </p>
+                               <p>Normal range ==>	(18.5 - 24.9) ==> Least</p>
+                               <p>Over-weight ==>	25.0 - 29.9 ==> Increased</p>
+                               <p>Obese (Class I) ==>	(30.0 - 34.9) ==> High</p>
+                               <p>Obese (Class II) ==> (35.0 - 39.9) ==> 	Very high</p>
+                               <p>Obese class III ==> >= 40.0) ==>  Extremely high</p>
+
+                </div>
+
+                  </div>
+
+
+
+
+
+
+
+
+
+
+         <script>
+
+             let form=document.querySelector('form');
+             let indicator=document.getElementById('indicator').children;
+             console.log(indicator[0])
+             
+
+             form.addEventListener('submit',(e)=>{
+                 e.preventDefault();
+                  let height=parseInt(document.getElementById('takeHeight').value);
+                   let weight=parseInt(document.getElementById('takeWeight').value);
+                   let result=document.getElementById('result');
+
+              if(height===''|| height==NaN || isNaN(height)){
+                  result.innerHTML='Please Enter a valid height';
+              }
+            if(height===''|| height==NaN || isNaN(height)){
+                  result.innerHTML='Please Enter a valid weight';
+              }
+
+              else{
+                      let store=(weight/((height*height)/10000)).toFixed(2);
+                      result.innerHTML=store;
+                      if(store<=18.5){     
+                         for(let i=0;i<=indicator.length;i++){
+                                if(i==0){
+                                indicator[i].classList.add('effect');
+                                }
+                                else{
+                                indicator[i].classList.remove('effect')
+                                }
+                         }
+                        
+                      }
+
+                      if(store>=18.5 && store<=24.9){
+
+                        for(let i=0;i<=indicator.length;i++){
+                                if(i==1){
+                                indicator[i].classList.add('effect');
+                                }else
+                                {
+                                indicator[i].classList.remove('effect')}
+                         }
+                      }
+
+
+                      if(store>=25 && store<=29.9){
+                      
+                        for(let i=0;i<=indicator.length;i++){
+                                if(i==2){
+                                indicator[i].classList.add('effect');
+                                }else{
+                                indicator[i].classList.remove('effect')}
+                         }
+                      }
+
+
+
+                      if(store>=30 && store<=34.9){
+                      
+                        for(let i=0;i<=indicator.length;i++){
+                                if(i==3){
+                                indicator[i].classList.add('effect');
+                                }else{
+                                indicator[i].classList.remove('effect')}
+                         }
+                      }
+
+
+                      if(store>=35 && store<=39.9){
+                      
+                        for(let i=0;i<=indicator.length;i++){
+                                if(i==4){
+                                indicator[i].classList.add('effect');
+                                }else{
+                                indicator[i].classList.remove('effect')}
+                         }
+                      }
+
+                      else{
+                           for(let i=0;i<=indicator.length;i++){
+                                if(i==5){
+                                indicator[i].classList.add('effect');
+                                }else{
+                                indicator[i].classList.remove('effect')}
+                         }
+                      }
+              }
+
+
+             })
+
+
+
+         </script>
+
+
+
+
+
+
+</body>
+</html>
